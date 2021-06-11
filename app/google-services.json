@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1010095528644",
+    "firebase_url": "https://toll-management-system-b2d9b-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "toll-management-system-b2d9b",
+    "storage_bucket": "toll-management-system-b2d9b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1010095528644:android:d973624d1f172fcb6f8791",
+        "android_client_info": {
+          "package_name": "com.blogspot.rajbtc.tollmanagement"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1010095528644-p9js53c4cmf6o11spnm0pn2am949kpek.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBRHkOn5ovXNW5fP5bxA3DHXBDYr0iNGaA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1010095528644-p9js53c4cmf6o11spnm0pn2am949kpek.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -9,6 +9,7 @@
     tools:context=".MainActivity">
 
     <ImageView
+        android:id="@+id/mainIv"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="3"
@@ -43,15 +44,19 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:text="Nitu Roy"/>
+                <TextView
+                    android:id="@+id/countNituTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:text="Total count: 3"/>
                 <TextView
+                    android:id="@+id/balNituTv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Balance: 100tk"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Total cost: 2100tk"/>
+
 
 
             </LinearLayout>
@@ -77,18 +82,22 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:text="Md. Toriqul"/>
+                <TextView
+                    android:id="@+id/countToriTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:text="Total count: 3"/>
                 <TextView
+                    android:id="@+id/balToriTv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Balance: 100tk"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Total cost: 2100tk"/>
+
+
 
             </LinearLayout>
-
         </androidx.cardview.widget.CardView>
 
 
