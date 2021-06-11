@@ -146,6 +146,7 @@ void beep() {
 
 void servo(bool is) {
   is ? myservo.write(50) : myservo.write(120);
+  Firebase.setString(firebaseData, "/Bar", is?"1":"0");
 }
 
 
