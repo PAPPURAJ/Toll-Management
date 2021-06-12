@@ -15,8 +15,8 @@ LiquidCrystal_I2C lcd(0x27, 16, 2);
 #include <ESP8266WiFi.h>
 #define FIREBASE_HOST "toll-management-system-b2d9b-default-rtdb.asia-southeast1.firebasedatabase.app"
 #define FIREBASE_AUTH "gVtMq22XDKrk4Yl9qqrfBXDYL9k0iImXycuf8773"
-#define WIFI_SSID "PAPPURAJ"
-#define WIFI_PASSWORD "5555555555"
+#define WIFI_SSID "IOT_TOLL"
+#define WIFI_PASSWORD "1234567890"
 FirebaseData firebaseData;
 FirebaseJson json;
 
@@ -38,8 +38,9 @@ void writeDB(int person) {
 
 void initSystem() {
   lcd.init();                 //Init the LCD
+  lcd.clear();
   lcd.backlight();            //Activate backlight
-  lcd.home();
+ // lcd.home();
   myservo.attach(D8);
   Serial.begin(9600);
   SPI.begin();
@@ -79,7 +80,7 @@ boolean credit(int person) {
     return false;
   } else {
     dis("Credited " + String(tollprice) + "tk from " + _name[person]);
-    _balance[person]-=tollprice;
+    _balance[person] -= tollprice;
     _count[person]++;
     writeDB(person);
     return true;
@@ -111,13 +112,13 @@ int getCardID() {
   delay(500);
   content.toUpperCase();
 
-  if (content.substring(1) == "B7 DD 78 E4")
+  if (content.substring(1) == "06 2D 2F F8")
   {
     beep();
     return 0;
   }
 
-  else if (content.substring(1) == "FA D4 0E 28") {
+  else if (content.substring(1) == "EB 4B 6D 26") {
     beep();
     return 1;
   }
@@ -129,6 +130,7 @@ int getCardID() {
 
 void dis(String text) {
   lcd.clear();
+  lcd.setCursor(1,0);
   lcd.print(text);
   Serial.println(text);
 }
@@ -146,22 +148,9 @@ void beep() {
 
 void servo(bool is) {
   is ? myservo.write(50) : myservo.write(120);
+
   Firebase.setString(firebaseData, "/Bar", is?"1":"0");
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -183,8 +172,7 @@ void setup() {
 
   pinMode(A0, OUTPUT);//Buzzer
   pinMode(ir, INPUT);
-  dis("Hello Keya");
-
+  
 }
 
 
@@ -196,32 +184,28 @@ void loop() {
 
 
   for (; !digitalRead(ir);) {
-   
-    dis("Punch your card"); 
+
+    dis("Punch your card");
     delay(200);
     servo(true);
     dis("Punch your card");
-      ID = getCardID();
-      if (ID == 0) {
-        credit(ID);
-        dis("Credited");
-        servo(false);
-        while(!digitalRead(ir)){
-          delay(200);
-        }
-      } else if (ID == 1) {
-        credit(ID);
+    ID = getCardID();
+    if (ID == 0) {
+      credit(ID);
+      dis("Credited");
+      servo(false);
+      while (!digitalRead(ir)) {
+        delay(200);
       }
-    
+    } else if (ID == 1) {
+      credit(ID);
+    }
+
 
 
   }
 
-
-    servo(false);
-
-
-
+  servo(false);
 
   delay(300);
 
