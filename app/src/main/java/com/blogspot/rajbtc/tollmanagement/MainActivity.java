@@ -20,7 +20,7 @@ import com.google.firebase.database.ValueEventListener;
 public class MainActivity extends AppCompatActivity {
 
     String TAG="===Main Activity===";
-    TextView nituBalance,nituCount,toriBalance,toriCount;
+    TextView shamimBalance,shamimCount,tamimBalance,tamimCount;
 
 
     FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -29,17 +29,17 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        nituBalance=findViewById(R.id.balNituTv);
-        nituCount=findViewById(R.id.countNituTv);
-        toriBalance=findViewById(R.id.balToriTv);
-        toriCount=findViewById(R.id.countToriTv);
+        shamimBalance=findViewById(R.id.balShamimTv);
+        shamimCount=findViewById(R.id.countShamimTv);
+        tamimBalance=findViewById(R.id.balTamimTv);
+        tamimCount=findViewById(R.id.countTamimTv);
 
 
 
 
         mainCarChange();
-        loadNitu();
-        loadToriqul();
+        loadShamim();
+        loadTamim();
 
     }
 
@@ -48,17 +48,17 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-    void loadNitu(){
-        DatabaseReference nituRef = database.getReference("Nitu");
+    void loadShamim(){
+        DatabaseReference nituRef = database.getReference("Shamim");
         nituRef.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
                 Log.e("=====",snapshot.getValue().toString());
 
                 if(snapshot.getKey().equals("Balance")){
-                    nituBalance.setText(("Balance: "+snapshot.getValue().toString()));
+                    shamimBalance.setText(("Balance: "+snapshot.getValue().toString()));
                 }else if(snapshot.getKey().equals("Count")){
-                    nituCount.setText("Total Count: "+snapshot.getValue().toString());
+                    shamimCount.setText("Total Count: "+snapshot.getValue().toString());
                 }
 
 
@@ -69,9 +69,9 @@ public class MainActivity extends AppCompatActivity {
                 Log.e("=====",snapshot.getValue().toString());
 
                 if(snapshot.getKey().equals("Balance")){
-                    nituBalance.setText(("Balance: "+snapshot.getValue().toString()));
+                    shamimBalance.setText(("Balance: "+snapshot.getValue().toString()));
                 }else if(snapshot.getKey().equals("Count")){
-                    nituCount.setText("Total Count: "+snapshot.getValue().toString());
+                    shamimCount.setText("Total Count: "+snapshot.getValue().toString());
                 }
 
             }
@@ -101,17 +101,17 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-    void loadToriqul(){
-        DatabaseReference nituRef = database.getReference("Toriqul");
+    void loadTamim(){
+        DatabaseReference nituRef = database.getReference("Tamim");
         nituRef.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
                 Log.e("=====",snapshot.getValue().toString());
 
                 if(snapshot.getKey().equals("Balance")){
-                    toriBalance.setText(("Balance: "+snapshot.getValue().toString()));
+                    tamimBalance.setText(("Balance: "+snapshot.getValue().toString()));
                 }else if(snapshot.getKey().equals("Count")){
-                    toriCount.setText("Total Count: "+snapshot.getValue().toString());
+                    tamimCount.setText("Total Count: "+snapshot.getValue().toString());
                 }
 
 
@@ -122,9 +122,9 @@ public class MainActivity extends AppCompatActivity {
                 Log.e("=====",snapshot.getValue().toString());
 
                 if(snapshot.getKey().equals("Balance")){
-                    toriBalance.setText(("Balance: "+snapshot.getValue().toString()));
+                    tamimBalance.setText(("Balance: "+snapshot.getValue().toString()));
                 }else if(snapshot.getKey().equals("Count")){
-                    toriCount.setText("Total Count: "+snapshot.getValue().toString());
+                    tamimCount.setText("Total Count: "+snapshot.getValue().toString());
                 }
             }
 

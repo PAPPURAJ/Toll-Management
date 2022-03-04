@@ -45,14 +45,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
-                    android:text="Nitu Roy"/>
+                    android:text="Shamim"/>
                 <TextView
-                    android:id="@+id/countNituTv"
+                    android:id="@+id/countShamimTv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Total count: 3"/>
                 <TextView
-                    android:id="@+id/balNituTv"
+                    android:id="@+id/balShamimTv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Balance: 100tk"/>
@@ -83,14 +83,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
-                    android:text="Md. Toriqul"/>
+                    android:text="Tamim"/>
                 <TextView
-                    android:id="@+id/countToriTv"
+                    android:id="@+id/countTamimTv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Total count: 3"/>
                 <TextView
-                    android:id="@+id/balToriTv"
+                    android:id="@+id/balTamimTv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Balance: 100tk"/>
